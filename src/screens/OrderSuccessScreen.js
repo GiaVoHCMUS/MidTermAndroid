@@ -22,7 +22,9 @@ export default function OrderSuccessScreen({ navigation }) {
 
             {/* Nút Track My Order (1 điểm) */}
             <TouchableOpacity 
-                onPress={() => navigation.navigate('My Orders')}
+                onPress={() => navigation.navigate("Main", {
+                    screen: "My Orders",
+                })}
                 className="bg-primary w-full py-4 rounded-2xl items-center shadow-lg"
             >
                 <Text className="text-white font-bold text-lg">Track My Order</Text>

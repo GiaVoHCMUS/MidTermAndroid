@@ -8,6 +8,10 @@ module.exports = {
           DEFAULT: '#00623B',
           hover: '#004d2e',
         },
+        accent: {
+          active: '#D4A574',
+          inactive: '#71A791',
+        },
         background: {
           light: '#FFFFFF',
           dark: '#121212',

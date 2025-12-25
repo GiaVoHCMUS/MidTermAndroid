@@ -55,15 +55,6 @@ function HomeTabs() {
   );
 }
 
-// export default function App() {
-//   return (
-//     <View style={styles.container}>
-//       <Text>Open up App.js to start working on your app!</Text>
-//       <StatusBar style="auto" />
-//     </View>
-//   );
-// }
-
 // Root Stack: Quản lý việc nhảy sang Details hoặc Cart
 export default function App() {
   return (

@@ -1,0 +1,28 @@
+{
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "tw",
+    "twStyle"
+  ],
+  "tailwindCSS.classFunctions": [
+    "tw",
+    "styled"
+  ],
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+
+  "[javascript]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
+
+  "[typescript]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  }
+}
+

@@ -6,8 +6,8 @@ import { useCart } from '../context/CartContext';
 
 export default function RewardsScreen({ navigation }) {
     const { stamps, totalPoints, resetStamps, orders } = useCart();
-    console.log(orders[0]);
-    console.log(orders.length);
+    
+    console.log("Heloo: ", totalPoints);
     return (
         <SafeAreaView className="flex-1 bg-background-light dark:bg-background-dark px-6">
             <Text className="text-center text-text-main-light dark:text-text-main-dark text-xl font-bold py-4">Rewards</Text>
@@ -58,7 +58,7 @@ export default function RewardsScreen({ navigation }) {
                             <Text className="text-text-main-light dark:text-text-main-dark font-bold">{order.items[0].name}</Text>
                             <Text className="text-text-muted-light text-xs"> {order.date}</Text>
                         </View>
-                        <Text className="text-text-main-light dark:text-text-main-dark font-bold">+ {Math.round(order.total)}</Text>
+                        <Text className="text-text-main-light dark:text-text-main-dark font-bold">+ {order.pointsEarned}</Text>
                     </View>
                 ))}
             </ScrollView>

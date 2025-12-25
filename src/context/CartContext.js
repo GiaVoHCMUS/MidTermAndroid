@@ -56,16 +56,7 @@ export const CartProvider = ({ children }) => {
     // Action: Checkout (Thanh toán)
     const checkout = () => {
         if (cart.length === 0) return;
-        
-        const newOrder = {
-            id: Date.now().toString(),
-            items: [...cart],
-            total: cart.reduce((sum, i) => sum + parseFloat(i.totalPrice), 0).toFixed(2),
-            status: 'ongoing',
-            date: new Date().toLocaleString(),
-        };
-
-        setOrders([newOrder, ...orders]);
+        const total = cart.reduce((sum, i) => sum + parseFloat(i.totalPrice), 0).toFixed(2);
         
         // Logic Rewards (Trang 8 PDF)
         let newStamps = stamps + 1;
@@ -73,8 +64,19 @@ export const CartProvider = ({ children }) => {
         setStamps(newStamps);
         
         // Cộng điểm (ví dụ $1 = 12 pts)
-        const pointsEarned = Math.floor(parseFloat(newOrder.total) * 12);
+        const pointsEarned = Math.floor(parseFloat(total) * 12);
         setTotalPoints(prev => prev + pointsEarned);
+
+        const newOrder = {
+            id: Date.now().toString(),
+            items: [...cart],
+            total,
+            status: 'ongoing',
+            date: new Date().toLocaleString(),
+            pointsEarned
+        };
+
+        setOrders([newOrder, ...orders]);
 
         setCart([]); // Xóa giỏ hàng sau khi mua
     };

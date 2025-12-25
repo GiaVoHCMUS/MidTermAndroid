@@ -9,11 +9,11 @@ import { useColorScheme } from 'nativewind';
 
 // Import Screens
 import HomeScreen from './src/screens/HomeScreen';
-// import DetailsScreen from './src/screens/DetailsScreen';
-// import RewardsScreen from './src/screens/RewardsScreen';
-// import OrdersScreen from './src/screens/OrdersScreen';
-// import ProfileScreen from './src/screens/ProfileScreen';
-// import CartScreen from './src/screens/CartScreen';
+import DetailsScreen from './src/screens/DetailsScreen';
+import RewardsScreen from './src/screens/RewardsScreen';
+import OrdersScreen from './src/screens/OrdersScreen';
+import ProfileScreen from './src/screens/ProfileScreen';
+import CartScreen from './src/screens/CartScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -44,9 +44,9 @@ function HomeTabs() {
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
-      {/* <Tab.Screen name="Rewards" component={RewardsScreen} />
+      <Tab.Screen name="Rewards" component={RewardsScreen} />
       <Tab.Screen name="My Orders" component={OrdersScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} /> */}
+      <Tab.Screen name="Profile" component={ProfileScreen} />
     </Tab.Navigator>
   );
 }
@@ -66,8 +66,8 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Main" component={HomeTabs} />
-        {/* <Stack.Screen name="Details" component={DetailsScreen} />
-        <Stack.Screen name="Cart" component={CartScreen} /> */}
+        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="Cart" component={CartScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

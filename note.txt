@@ -1,0 +1,9 @@
+Các màn hình cần làm trong ứng dụng:
+    Home Screen.
+    Details.
+    My Cart.
+    Order Success.
+    My Orders.
+    Rewards.
+    Redeem Rewards.
+    Profile.

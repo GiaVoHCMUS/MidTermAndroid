@@ -72,10 +72,65 @@ export const COFFEE_LIST = [
 ];
 
 
-// export const COLORS = {
-//     primary: '#006241', // Màu xanh đặc trưng của quán cafe
-//     secondary: '#D4A574',
-//     background: '#FFFFFF',
-//     text: '#333333',
-//     grey: '#F5F5F5'
-// };
+export const REDEEM_DATA = [
+    { 
+        id: '1', 
+        name: 'Cafe Latte', 
+        points: 1340, 
+        image: 'https://fromcaudat.com/wp-content/uploads/2023/01/cafe-latte-la-gi-7.jpg' 
+    },
+    { 
+        id: '2', 
+        name: 'Flat White', 
+        points: 1440, 
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0dCymsMTkxww4jjUkUz75vLg0zAGqc1Eqsg&s' 
+    },
+    {
+        id: '3',
+        name: 'Cappuccino',
+        points: 1200,
+        image: 'https://www.hangngoainhap.com.vn/images/upload/Image/gia-1-coc-capuchino-o-ha-noi-3.jpg',
+    },
+    {
+        id: '4',
+        name: 'Americano',
+        points: 1000,
+        image: 'https://file.hstatic.net/200000079049/file/americano-2_280dc6f3f644483db59f71ad42975982.jpeg',
+    },
+    {
+        id: '5',
+        name: 'Espresso',
+        points: 900,
+        image: 'https://phinviet.com.vn/wp-content/uploads/2019/11/ca-phe-espresso.jpg',
+    },
+    {
+        id: '6',
+        name: 'Mocha',
+        points: 1500,
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeO7gIlorGa2-QoOAVDbRISdEPAbE-2LZqeg&s',
+    },
+    {
+        id: '7',
+        name: 'Caramel Macchiato',
+        points: 1600,
+        image: 'https://cdn2.fptshop.com.vn/small/cach_lam_caramel_macchiato_1_688c67ae86.JPG',
+    },
+    {
+        id: '8',
+        name: 'Iced Latte',
+        points: 1300,
+        image: 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/iced-latte-30188f7.jpg?quality=90&resize=440,400',
+    },
+    {
+        id: '9',
+        name: 'Cold Brew',
+        points: 1400,
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSow5TvR2THvfnjpgySH3yxE69iGpDAUQy14g&s',
+    },
+    {
+        id: '10',
+        name: 'Matcha Latte',
+        points: 1550,
+        image: 'https://lypham.vn/wp-content/uploads/2024/10/cach-pha-matcha-latte-nong.jpg',
+    },
+];

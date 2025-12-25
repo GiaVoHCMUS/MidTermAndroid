@@ -10,3 +10,4 @@ Các màn hình cần làm trong ứng dụng:
 
 Fix:
     Loyalty card của trang HomeScreen -> làm như trang Rewards 
+    Sửa Alert thành Toast

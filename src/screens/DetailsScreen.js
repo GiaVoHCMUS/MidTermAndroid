@@ -2,9 +2,11 @@ import React, { useState, useMemo } from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView, Modal } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import StyledIonicons from '../components/StyledIonicons'; // Import component của bạn
+import { useCart } from '../context/CartContext';
 
 export default function DetailsScreen({ route, navigation }) {
     const { product } = route.params;
+    const { cart, addToCart } = useCart();
 
     const [quantity, setQuantity] = useState(1);
     const [shot, setShot] = useState('Single');     // Single, Double
@@ -22,9 +24,28 @@ export default function DetailsScreen({ route, navigation }) {
         return ((product.price + extra) * quantity).toFixed(2);
     }, [shot, size, quantity, product.price]);
 
-    const cartItemsMock = [
-        { name: product.name, price: totalPrice, options: `${size} | ${shot} shot | ${ice} ice` }
-    ];
+    // Hàm thêm vào giỏ hàng thật
+    const handleAddToCart = () => {
+        const itemToCart = {
+            id: product.id,
+            name: product.name,
+            image: product.image,
+            quantity,
+            shot,
+            size,
+            select, // 'Hot' hoặc 'Cold'
+            ice: select === 'Hot' ? 'None' : ice, // Logic bạn yêu cầu: Hot thì đá là None
+            totalPrice: totalPrice, 
+        };
+        addToCart(itemToCart);
+        
+        // Sau khi thêm, có thể chọn 1 trong 2 cách:
+        // Cách A: Chuyển thẳng sang trang Cart
+        // navigation.navigate('Cart');
+
+        // Cách B: Chỉ hiện Modal Preview 
+        setCartPreviewVisible(true);
+    };
 
     return (
         <SafeAreaView className="flex-1 bg-background-light dark:bg-background-dark">
@@ -155,32 +176,45 @@ export default function DetailsScreen({ route, navigation }) {
                     <Text className="text-text-main-light dark:text-text-main-dark text-2xl font-bold">${totalPrice}</Text>
                 </View>
                 <TouchableOpacity 
-                    onPress={() => navigation.navigate('Cart')}
+                    onPress={handleAddToCart}
                     className="bg-primary py-4 rounded-2xl items-center shadow-lg active:opacity-80"
                 >
                     <Text className="text-white font-bold text-lg">Add to cart</Text>
                 </TouchableOpacity>
             </View>
 
-            {/* Modal Preview */}
+            {/* MODAL PREVIEW */}
             <Modal visible={isCartPreviewVisible} transparent={true} animationType="slide">
                 <View className="flex-1 justify-end bg-black/50">
-                    <View className="bg-background-light dark:bg-background-dark p-6 rounded-t-3xl">
-                        <View className="flex-row justify-between items-center mb-4">
-                            <Text className="text-xl font-bold dark:text-white">Cart Preview</Text>
+                    <View className="bg-background-light dark:bg-background-dark p-6 rounded-t-3xl min-h-[300px]">
+                        <View className="flex-row justify-between items-center mb-6">
+                            <Text className="text-xl font-bold dark:text-white">Cart Preview ({cart.length})</Text>
                             <TouchableOpacity onPress={() => setCartPreviewVisible(false)}>
                                 <StyledIonicons name="close" size={24} className="text-text-main-light dark:text-text-main-dark" />
                             </TouchableOpacity>
                         </View>
-                        {cartItemsMock.map((item, index) => (
-                            <View key={index} className="flex-row justify-between py-3 border-b border-border-light dark:border-border-dark">
-                                <View>
-                                    <Text className="font-bold dark:text-white">{item.name}</Text>
-                                    <Text className="text-xs text-text-muted-light">{item.options}</Text>
-                                </View>
-                                <Text className="font-bold text-primary">${item.price}</Text>
+
+                        {/* Render từ cart thật */}
+                        {cart.length > 0 ? (
+                            <ScrollView className="max-h-60">
+                                {cart.map((item) => (
+                                    <View key={item.cartId} className="flex-row justify-between py-3 border-b border-border-light dark:border-border-dark">
+                                        <View className="flex-1 pr-4">
+                                            <Text className="font-bold dark:text-white">{item.name} <Text className="text-primary">x{item.quantity}</Text></Text>
+                                            <Text className="text-[10px] text-text-muted-light" numberOfLines={1}>
+                                                {item.size} | {item.select} {item.select === 'Cold' ? `| ${item.ice} ice` : ''}
+                                            </Text>
+                                        </View>
+                                        <Text className="font-bold text-primary">${item.totalPrice}</Text>
+                                    </View>
+                                ))}
+                            </ScrollView>
+                        ) : (
+                            <View className="items-center py-10">
+                                <Text className="text-text-muted-light italic">Your cart is currently empty</Text>
                             </View>
-                        ))}
+                        )}
+
                         <TouchableOpacity 
                             onPress={() => {setCartPreviewVisible(false); navigation.navigate('Cart');}}
                             className="bg-primary mt-6 py-4 rounded-xl items-center"

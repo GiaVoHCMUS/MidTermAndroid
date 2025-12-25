@@ -4,15 +4,17 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { COFFEE_LIST } from "../constants/data";
 import { styled } from "nativewind";
-
-const StyledIonicons = styled(Ionicons);
+import StyledIonicons from "../components/StyledIonicons";
+import { useCart } from "../context/CartContext";
 
 export default function HomeScreen({ navigation }) {
+    const { stamps } = useCart();
+
     const Header = () => (
         <View className="flex-row justify-between items-center px-6 py-4">
             <View>
                 <Text className="text-text-muted-light dark:text-text-muted-dark text-sm">Good morning</Text>
-                <Text className="text-text-main-light dark:text-text-main-dark text-xl font-bold">Anderson</Text>
+                <Text className="text-text-main-light dark:text-text-main-dark text-xl font-bold">Quoc Gia Vo</Text>
             </View>
             <View className="flex-row space-x-4">
                 <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
@@ -29,15 +31,15 @@ export default function HomeScreen({ navigation }) {
         <View className="mx-6 bg-primary p-5 rounded-3xl flex-row justify-between items-center mb-8 shadow-lg shadow-primary">
             <View>
                 <Text className="text-white opacity-80 text-xs">Loyalty card</Text>
-                <Text className="text-white text-lg font-bold">4 / 8</Text>
+                <Text className="text-white text-lg font-bold">{stamps} / 8</Text>
             </View>
             <View className="flex-row space-x-2 bg-white/20 p-2 rounded-xl">
-                {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                    <Ionicons 
+                {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
+                    <StyledIonicons 
                         key={i} 
                         name="cafe" 
-                        size={18} 
-                        color={i <= 4 ? "#D4A574" : "#FFFFFF50"} 
+                        size={24} 
+                        className={i <= stamps ? "text-accent-active" : "text-accent-inactive"}
                     />
                 ))}
             </View>

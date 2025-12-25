@@ -7,7 +7,6 @@ import { useCart } from '../context/CartContext';
 export default function RewardsScreen({ navigation }) {
     const { stamps, totalPoints, resetStamps, orders } = useCart();
     
-    console.log("Heloo: ", totalPoints);
     return (
         <SafeAreaView className="flex-1 bg-background-light dark:bg-background-dark px-6">
             <Text className="text-center text-text-main-light dark:text-text-main-dark text-xl font-bold py-4">Rewards</Text>

@@ -18,6 +18,7 @@ import OrdersScreen from './src/screens/OrdersScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import CartScreen from './src/screens/CartScreen';
 import OrderSuccessScreen from './src/screens/OrderSuccessScreen';
+import RedeemScreen from './src/screens/RedeemRewardsScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -65,6 +66,7 @@ export default function App() {
           <Stack.Screen name="Details" component={DetailsScreen} />
           <Stack.Screen name="Cart" component={CartScreen} />
           <Stack.Screen name="OrderSuccess" component={OrderSuccessScreen} />
+          <Stack.Screen name="Redeem" component={RedeemScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </CartProvider>

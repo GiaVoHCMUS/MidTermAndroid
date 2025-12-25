@@ -7,3 +7,6 @@ Các màn hình cần làm trong ứng dụng:
     Rewards.
     Redeem Rewards.
     Profile.
+
+Fix:
+    Loyalty card của trang HomeScreen -> làm như trang Rewards 

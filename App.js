@@ -7,6 +7,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Ionicons } from '@expo/vector-icons';
 import { useColorScheme } from 'nativewind';
 
+// Import Cart Context
+import { CartProvider } from './src/context/CartContext';
+
 // Import Screens
 import HomeScreen from './src/screens/HomeScreen';
 import DetailsScreen from './src/screens/DetailsScreen';
@@ -14,6 +17,7 @@ import RewardsScreen from './src/screens/RewardsScreen';
 import OrdersScreen from './src/screens/OrdersScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
 import CartScreen from './src/screens/CartScreen';
+import OrderSuccessScreen from './src/screens/OrderSuccessScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -63,13 +67,16 @@ function HomeTabs() {
 // Root Stack: Quản lý việc nhảy sang Details hoặc Cart
 export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Main" component={HomeTabs} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
-        <Stack.Screen name="Cart" component={CartScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <CartProvider>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Main" component={HomeTabs} />
+          <Stack.Screen name="Details" component={DetailsScreen} />
+          <Stack.Screen name="Cart" component={CartScreen} />
+          <Stack.Screen name="OrderSuccess" component={OrderSuccessScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </CartProvider>
   );
 }
 

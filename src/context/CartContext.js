@@ -79,10 +79,29 @@ export const CartProvider = ({ children }) => {
         setCart([]); // Xóa giỏ hàng sau khi mua
     };
 
+    const transitionToHistory = (orderId) => {
+        setOrders(prev => prev.map(order =>
+            order.id === orderId ? { ...order, status: "history" } : order
+        ));
+    };
+
+    const redeemPoints = (pointCost) => {
+        if (totalPoints >= pointCost) {
+            setTotalPoints(pre => pre - pointCost);
+            return true;
+        }
+        return false;
+    }
+
+    const resetStamps = () => {
+        setStamps(0);
+    }
+
     return (
         <CartContext.Provider value={{ 
             cart, addToCart, removeFromCart, checkout, 
-            orders, setOrders, stamps, setStamps, totalPoints, setTotalPoints 
+            orders, setOrders, stamps, setStamps, totalPoints, setTotalPoints,
+            transitionToHistory, redeemPoints, resetStamps,
         }}>
             {children}
         </CartContext.Provider>

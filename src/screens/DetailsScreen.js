@@ -198,7 +198,7 @@ export default function DetailsScreen({ route, navigation }) {
                         {cart.length > 0 ? (
                             <ScrollView className="max-h-60">
                                 {cart.map((item) => (
-                                    <View key={item.cartId} className="flex-row justify-between py-3 border-b border-border-light dark:border-border-dark">
+                                    <View key={item.id} className="flex-row justify-between py-3 border-b border-border-light dark:border-border-dark">
                                         <View className="flex-1 pr-4">
                                             <Text className="font-bold dark:text-white">{item.name} <Text className="text-primary">x{item.quantity}</Text></Text>
                                             <Text className="text-[10px] text-text-muted-light" numberOfLines={1}>

@@ -45,12 +45,22 @@ export const CartProvider = ({ children }) => {
 
     // Action: Thêm vào giỏ
     const addToCart = (item) => {
-        setCart((prev) => [...prev, { ...item, cartId: Date.now().toString() }]);
+        setCart(prev => {
+            const existedItem = prev.find(i => i.id === item.id);
+
+            if (existedItem) {
+                return prev.map(i =>
+                    i.id === item.id ? { ...i, quantity: i.quantity + item.quantity } : i
+                );
+            }
+
+            return [...prev, item]
+        });
     };
 
     // Action: Xóa khỏi giỏ
-    const removeFromCart = (cartId) => {
-        setCart((prev) => prev.filter(i => i.cartId !== cartId));
+    const removeFromCart = (id) => {
+        setCart((prev) => prev.filter(i => i.id !== id));
     };
 
     // Action: Checkout (Thanh toán)

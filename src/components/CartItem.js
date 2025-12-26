@@ -15,7 +15,7 @@ export default function CartItem({ item, onRemove }) {
 
         return (
             <TouchableOpacity 
-                onPress={() => onRemove(item.cartId)}
+                onPress={() => onRemove(item.id)}
                 activeOpacity={0.7}
             >
                 <View className="bg-red-500 w-20 h-[90%] my-2 rounded-3xl justify-center items-center mr-2">

@@ -30,38 +30,37 @@ export default function OrdersScreen() {
                 ))}
             </View>
             
-            <ScrollView showsVerticalScrollIndicator={false}>
-                <FlatList
-                    data={filteredOrders}
-                    keyExtractor={item => item.id}
-                    contentContainerStyle={{ paddingHorizontal: 24 }}
-                    renderItem={({ item }) => (
-                        <View className="bg-surface-light dark:bg-surface-dark p-4 rounded-3xl mb-4 border border-border-light dark:border-border-dark">
-                            <View className="flex-row justify-between mb-2">
-                                <Text className="text-text-muted-light text-xs">{item.date}</Text>
-                                <Text className="text-primary font-bold">${item.total}</Text>
-                            </View>
-                            
-                            {item.items.map((coffee, idx) => (
-                                <View key={idx} className="flex-row items-center mt-2">
-                                    <StyledIonicons name="cafe" size={16} className="text-primary mr-2" />
-                                    <Text className="text-text-main-light dark:text-text-main-dark text-sm">{coffee.name} x{coffee.quantity}</Text>
-                                </View>
-                            ))}
-
-                            {/* Nút chuyển trạng thái (3 điểm) */}
-                            {item.status === 'ongoing' && (
-                                <TouchableOpacity 
-                                    onPress={() => transitionToHistory(item.id)}
-                                    className="mt-4 bg-primary/10 py-2 rounded-xl items-center border border-primary/20"
-                                >
-                                    <Text className="text-primary font-bold">Mark as Delivered</Text>
-                                </TouchableOpacity>
-                            )}
+            <FlatList
+                data={filteredOrders}
+                keyExtractor={item => item.id}
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={{ paddingHorizontal: 24 }}
+                renderItem={({ item }) => (
+                    <View className="bg-surface-light dark:bg-surface-dark p-4 rounded-3xl mb-4 border border-border-light dark:border-border-dark">
+                        <View className="flex-row justify-between mb-2">
+                            <Text className="text-text-muted-light text-xs">{item.date}</Text>
+                            <Text className="text-primary font-bold">${item.total}</Text>
                         </View>
-                    )}
-                />
-            </ScrollView>
+                        
+                        {item.items.map((coffee, idx) => (
+                            <View key={idx} className="flex-row items-center mt-2">
+                                <StyledIonicons name="cafe" size={16} className="text-primary mr-2" />
+                                <Text className="text-text-main-light dark:text-text-main-dark text-sm">{coffee.name} x{coffee.quantity}</Text>
+                            </View>
+                        ))}
+
+                        {/* Nút chuyển trạng thái (3 điểm) */}
+                        {item.status === 'ongoing' && (
+                            <TouchableOpacity 
+                                onPress={() => transitionToHistory(item.id)}
+                                className="mt-4 bg-primary/10 py-2 rounded-xl items-center border border-primary/20"
+                            >
+                                <Text className="text-primary font-bold">Mark as Delivered</Text>
+                            </TouchableOpacity>
+                        )}
+                    </View>
+                )}
+            />
         </SafeAreaView>
     );
 }

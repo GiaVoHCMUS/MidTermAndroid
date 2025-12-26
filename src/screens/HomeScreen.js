@@ -28,12 +28,12 @@ export default function HomeScreen({ navigation }) {
     );
 
     const LoyaltyCard = () => (
-        <View className="mx-6 bg-primary p-5 rounded-3xl flex-row justify-between items-center mb-8 shadow-lg shadow-primary">
-            <View>
-                <Text className="text-white opacity-80 text-xs">Loyalty card</Text>
-                <Text className="text-white text-lg font-bold">{stamps} / 8</Text>
+        <View className="bg-primary p-6 rounded-[32px] mb-6 mx-6">
+            <View className="flex-row justify-between items-center mb-4">
+                <Text className="text-white font-bold">Loyalty card</Text>
+                <Text className="text-white">{stamps} / 8</Text>
             </View>
-            <View className="flex-row space-x-2 bg-white/20 p-2 rounded-xl">
+            <View className="flex-row justify-between bg-white/20 p-4 rounded-2xl">
                 {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
                     <StyledIonicons 
                         key={i} 

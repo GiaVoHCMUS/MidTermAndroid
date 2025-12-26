@@ -9,5 +9,5 @@ Các màn hình cần làm trong ứng dụng:
     Profile.
 
 Fix:
-    Loyalty card của trang HomeScreen -> làm như trang Rewards 
+    Loyalty card của trang HomeScreen -> làm như trang Rewards -> Done
     Sửa Alert thành Toast

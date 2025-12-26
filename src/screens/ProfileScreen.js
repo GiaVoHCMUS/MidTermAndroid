@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Switch } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import StyledIonicons from '../components/StyledIonicons';
+import { useColorScheme } from 'nativewind';
 
 export default function ProfileScreen() {
+    const { colorScheme, toggleColorScheme } = useColorScheme();
     const [isEditing, setIsEditing] = useState(false);
     const [user, setUser] = useState({
         name: 'Quoc Gia Vo',
@@ -46,6 +48,27 @@ export default function ProfileScreen() {
                         </View>
                     </View>
                 ))}
+            </View>
+
+            {/* Dark/light mode */}
+            <View className="mt-10 p-4 bg-surface-light dark:bg-surface-dark rounded-3xl">
+                <Text className="text-text-main-light dark:text-white font-bold mb-4">Settings</Text>
+                
+                <View className="flex-row justify-between items-center">
+                    <View className="flex-row items-center">
+                        <StyledIonicons 
+                            name={colorScheme === 'dark' ? "moon" : "sunny"} 
+                            size={20} 
+                            className="text-primary mr-3" 
+                        />
+                        <Text className="text-text-main-light dark:text-text-main-dark">Dark Mode</Text>
+                    </View>
+                    <Switch 
+                        value={colorScheme === 'dark'} 
+                        onValueChange={toggleColorScheme}
+                        trackColor={{ false: "#767577", true: "#00623B" }}
+                    />
+                </View>
             </View>
         </SafeAreaView>
     );

@@ -32,7 +32,7 @@ export default function OrdersScreen() {
             
             <FlatList
                 data={filteredOrders}
-                keyExtractor={item => item.id}
+                keyExtractor={item => item.cartId}
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ paddingHorizontal: 24 }}
                 renderItem={({ item }) => (
@@ -43,13 +43,13 @@ export default function OrdersScreen() {
                         </View>
                         
                         {item.items.map((coffee, idx) => (
-                            <View key={idx} className="flex-row items-center mt-2">
+                            <View key={`${item.id}-${idx}`} className="flex-row items-center mt-2">
                                 <StyledIonicons name="cafe" size={16} className="text-primary mr-2" />
                                 <Text className="text-text-main-light dark:text-text-main-dark text-sm">{coffee.name} x{coffee.quantity}</Text>
                             </View>
                         ))}
 
-                        {/* Nút chuyển trạng thái (3 điểm) */}
+                        {/* Nút chuyển trạng thái */}
                         {item.status === 'ongoing' && (
                             <TouchableOpacity 
                                 onPress={() => transitionToHistory(item.id)}

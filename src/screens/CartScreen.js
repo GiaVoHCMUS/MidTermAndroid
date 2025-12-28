@@ -26,7 +26,7 @@ export default function CartScreen({ navigation }) {
                 {/* List sản phẩm dùng CartItem đã viết ở trên */}
                 <FlatList
                     data={cart}
-                    keyExtractor={(item) => item.id}
+                    keyExtractor={(item) => item.cartId}
                     renderItem={({ item }) => (
                         <CartItem item={item} onRemove={removeFromCart} />
                     )}

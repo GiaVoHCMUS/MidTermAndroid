@@ -181,21 +181,21 @@ export const REDEEM_DATA = [
 export const STORES_DATA = [
     { 
         id: 1, 
-        title: 'The Code Cup - Central', 
+        title: 'Ordinary Coffee House - Central', 
         address: '123 Ly Thuong Kiet, District 10',
         lat: 10.772, 
         lng: 106.660 
     },
     { 
         id: 2, 
-        title: 'The Code Cup - West Side', 
+        title: 'Ordinary Coffee House - West Side', 
         address: '456 Su Van Hanh, District 10',
         lat: 10.775, 
         lng: 106.665 
     },
     { 
         id: 3, 
-        title: 'The Code Cup - Airport', 
+        title: 'Ordinary Coffee House - Airport', 
         address: 'Tan Son Nhat, Tan Binh', 
         lat: 10.816, 
         lng: 106.663 

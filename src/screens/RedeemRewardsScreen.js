@@ -28,6 +28,7 @@ export default function RedeemScreen({ navigation }) {
 
             <FlatList
                 data={REDEEM_DATA}
+                showsVerticalScrollIndicator={false}
                 renderItem={({ item }) => (
                     <View className="flex-row justify-between items-center py-4 border-b border-border-light">
                         <Image source={{ uri: item.image }} className="w-16 h-16 rounded-xl" />

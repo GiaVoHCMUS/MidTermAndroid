@@ -49,25 +49,38 @@ export const CartProvider = ({ children }) => {
         }
     };
 
+
     // Action: Thêm vào giỏ
     const addToCart = (item) => {
-        setCart(prev => {
-            const existedItem = prev.find(i => i.id === item.id);
+    // 1. Tạo cartId từ các thuộc tính (Đây chính là chìa khóa)
+    const itemKey = `${item.id}-${item.size}-${item.shot}-${item.select}-${item.ice}`;
 
-            if (existedItem) {
-                return prev.map(i =>
-                    i.id === item.id ? { ...i, quantity: i.quantity + item.quantity } : i
-                );
-            }
+    setCart(prev => {
+        // 2. Kiểm tra xem trong giỏ đã có món nào trùng cái cartId này chưa
+        const existedItem = prev.find(i => i.cartId === itemKey);
 
-            return [...prev, item]
-        });
-    };
+        if (existedItem) {
+            // 3. Nếu ĐÃ CÓ: Gộp lại, cộng dồn số lượng và tiền
+            return prev.map(i =>
+                i.cartId === itemKey 
+                ? { 
+                    ...i, 
+                    quantity: i.quantity + item.quantity,
+                    totalPrice: (parseFloat(i.totalPrice) + parseFloat(item.totalPrice)).toFixed(2)
+                } 
+                : i
+            );
+        }
 
-    // Action: Xóa khỏi giỏ
-    const removeFromCart = (id) => {
-        setCart((prev) => prev.filter(i => i.id !== id));
-    };
+        // 4. Nếu CHƯA CÓ: Thêm mới và gán cartId chính là itemKey
+        return [...prev, { ...item, cartId: itemKey }];
+    });
+};
+
+// Cập nhật luôn hàm xóa để dùng cartId cho đồng bộ
+const removeFromCart = (cartId) => {
+    setCart((prev) => prev.filter(i => i.cartId !== cartId));
+};
 
     // Action: Checkout (Thanh toán)
     const checkout = () => {

@@ -3,17 +3,13 @@ import { View, Text, TextInput, TouchableOpacity, Switch } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import StyledIonicons from '../components/StyledIonicons';
 import { useColorScheme } from 'nativewind';
+import { useCart } from '../context/CartContext'
 
 export default function ProfileScreen() {
     const { colorScheme, toggleColorScheme } = useColorScheme();
     const [isEditing, setIsEditing] = useState(false);
-    const [user, setUser] = useState({
-        name: 'Quoc Gia Vo',
-        phone: '+84 847090205',
-        email: 'quocgia2005@gmail.com',
-        address: 'Kiet 2, Hung Nhon, Nam Hai Lang, Quang Tri'
-    });
-
+    const { user, setUser } = useCart();
+  
     return (
         <SafeAreaView className="flex-1 bg-background-light dark:bg-background-dark px-8">
             <View className="flex-row justify-between items-center py-6">

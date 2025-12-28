@@ -8,6 +8,12 @@ export const CartProvider = ({ children }) => {
     const [orders, setOrders] = useState([]);
     const [stamps, setStamps] = useState(0); // Tích điểm (max 8)
     const [totalPoints, setTotalPoints] = useState(2000); // Điểm thưởng ban đầu
+    const [user, setUser] = useState({
+        name: 'Quoc Gia Vo',
+        phone: '+84 847090205',
+        email: 'quocgia2005@gmail.com',
+        address: 'Kiet 2, Hung Nhon, Nam Hai Lang, Quang Tri'
+    });
 
     // Load dữ liệu khi mở app
     useEffect(() => {
@@ -113,7 +119,7 @@ export const CartProvider = ({ children }) => {
         <CartContext.Provider value={{ 
             cart, addToCart, removeFromCart, checkout, 
             orders, setOrders, stamps, setStamps, totalPoints, setTotalPoints,
-            transitionToHistory, redeemPoints, resetStamps,
+            transitionToHistory, redeemPoints, resetStamps, user, setUser
         }}>
             {children}
         </CartContext.Provider>

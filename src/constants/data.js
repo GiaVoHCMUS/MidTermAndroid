@@ -5,6 +5,7 @@ export const COFFEE_LIST = [
         price: 3.00,
         image: 'https://images.pexels.com/photos/374885/pexels-photo-374885.jpeg',
         description: 'A rich and smooth classic coffee.',
+        category: 'Coffee',
     },
     {
         id: '2',
@@ -12,6 +13,7 @@ export const COFFEE_LIST = [
         price: 3.50,
         image: 'https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg',
         description: 'Steamed milk foam with espresso.',
+        category: 'Coffee',
     },
     {
         id: '3',
@@ -19,6 +21,7 @@ export const COFFEE_LIST = [
         price: 4.00,
         image: 'https://vinbarista.com/uploads/news/ca-phe-latte-la-gi-latte-co-vi-gi-latte-khac-gi-capuchino-202408161122.jpg',
         description: 'Creamy espresso with steamed milk.',
+        category: 'Coffee',
     },
     {
         id: '4',
@@ -26,6 +29,7 @@ export const COFFEE_LIST = [
         price: 4.50,
         image: 'https://images.pexels.com/photos/302876/pexels-photo-302876.jpeg',
         description: 'Espresso mixed with chocolate and milk.',
+        category: 'Coffee',
     },
     {
         id: '5',
@@ -33,6 +37,7 @@ export const COFFEE_LIST = [
         price: 4.20,
         image: 'https://images.pexels.com/photos/414645/pexels-photo-414645.jpeg',
         description: 'Espresso with velvety steamed milk.',
+        category: 'Coffee',
     },
     {
         id: '6',
@@ -40,6 +45,7 @@ export const COFFEE_LIST = [
         price: 2.50,
         image: 'https://www.sharmispassions.com/wp-content/uploads/2012/07/espresso-coffee-recipe04-500x500.jpg',
         description: 'Strong and bold single shot coffee.',
+        category: 'Coffee',
     },
     {
         id: '7',
@@ -47,6 +53,7 @@ export const COFFEE_LIST = [
         price: 3.80,
         image: 'https://images.pexels.com/photos/414837/pexels-photo-414837.jpeg',
         description: 'Espresso “stained” with a touch of milk foam.',
+        category: 'Coffee',
     },
     {
         id: '8',
@@ -54,6 +61,7 @@ export const COFFEE_LIST = [
         price: 4.00,
         image: 'https://images.pexels.com/photos/461428/pexels-photo-461428.jpeg',
         description: 'Equal espresso and steamed milk.',
+        category: 'Coffee',
     },
     {
         id: '9',
@@ -61,6 +69,7 @@ export const COFFEE_LIST = [
         price: 5.00,
         image: 'https://images.pexels.com/photos/302892/pexels-photo-302892.jpeg',
         description: 'Espresso poured over ice cream — dessert coffee.',
+        category: 'Coffee',
     },
     {
         id: '10',
@@ -68,8 +77,42 @@ export const COFFEE_LIST = [
         price: 4.50,
         image: 'https://www.brighteyedbaker.com/wp-content/uploads/2024/03/Iced-Spanish-Latte-Recipe.jpg',
         description: 'Chilled espresso with cold milk over ice.',
+        category: 'Coffee',
     },
+    {
+        id: '13',
+        name: 'Green Tea',
+        price: 2.80,
+        image: 'https://cdn.shopify.com/s/files/1/0636/5718/1397/files/230718_051000456-1080x1080_480x480.jpg?v=1689647704',
+        description: 'Light and refreshing green tea.',
+        category: 'Tea',
+    },
+    {
+        id: '14',
+        name: 'Black Tea',
+        price: 2.50,
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIBwCi_2NQ3EaCDwJY45AUfxt-s6iOr4_B7A&s',
+        description: 'Bold and rich black tea.',
+        category: 'Tea',
+    },
+    {
+        id: '15',
+        name: 'Chai Latte',
+        price: 4.00,
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ46W7KIiEcq4OAldEPcUUMec_q6qjD_roXhg&s',
+        description: 'Spicy tea with steamed milk.',
+        category: 'Tea',
+    },
+    {
+        id: '16',
+        name: 'Iced Tea',
+        price: 3.50,
+        image: 'https://www.thespruceeats.com/thmb/jk3sZ3Jtq2WPnd31DrB-FR1qfs0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/summer-peach-tea-cocktail-recipe-761506-hero-01-f949acc1ed22404da03ce72648412bcf.jpg',
+        description: 'Chilled tea served with ice and lemon.',
+        category: 'Tea',
+    }
 ];
+
 
 
 export const REDEEM_DATA = [
@@ -132,5 +175,29 @@ export const REDEEM_DATA = [
         name: 'Matcha Latte',
         points: 1550,
         image: 'https://lypham.vn/wp-content/uploads/2024/10/cach-pha-matcha-latte-nong.jpg',
+    },
+];
+
+export const STORES_DATA = [
+    { 
+        id: 1, 
+        title: 'The Code Cup - Central', 
+        address: '123 Ly Thuong Kiet, District 10',
+        lat: 10.772, 
+        lng: 106.660 
+    },
+    { 
+        id: 2, 
+        title: 'The Code Cup - West Side', 
+        address: '456 Su Van Hanh, District 10',
+        lat: 10.775, 
+        lng: 106.665 
+    },
+    { 
+        id: 3, 
+        title: 'The Code Cup - Airport', 
+        address: 'Tan Son Nhat, Tan Binh', 
+        lat: 10.816, 
+        lng: 106.663 
     },
 ];

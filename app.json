@@ -1,29 +1,29 @@
 {
   "expo": {
-    "name": "source",
+    "name": "Ordinary Coffee House",
     "slug": "source",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo-coffee.jpg",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/photo.jpg",
+      "resizeMode": "cover",
+      "backgroundColor": "#00623B"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/photo.jpg",
+        "backgroundColor": "#00623B"
       },
       "edgeToEdgeEnabled": true
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/logo-coffee.jpg"
     }
   }
 }

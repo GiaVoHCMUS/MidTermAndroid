@@ -11,3 +11,13 @@ Các màn hình cần làm trong ứng dụng:
 Fix:
     Loyalty card của trang HomeScreen -> làm như trang Rewards -> Done
     Sửa Alert thành Toast
+
+Các tính năng thêm:
+    Dark/Light mode.
+    Advanced Search & Filter.
+    Store Locator với bản đồ thật.
+
+Dark/Light Mode Sync: Hệ thống giao diện kép đồng bộ toàn ứng dụng, cho phép người dùng tùy chỉnh và ghi nhớ trạng thái qua AsyncStorage.
+Real-time Search & Multi-category Filtering: Hệ thống lọc sản phẩm thông minh giúp tối ưu trải nghiệm mua sắm.
+Branch Store Locator: Tích hợp bản đồ vệ tinh để hiển thị các chi nhánh cửa hàng (Sử dụng Native Maps API).
+Haptic Feedback & Animations: (Thêm activeOpacity, scale khi nhấn nút như tôi đã code cho bạn) - Tăng tính tương tác vật lý cho app.

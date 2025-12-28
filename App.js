@@ -19,6 +19,8 @@ import ProfileScreen from './src/screens/ProfileScreen';
 import CartScreen from './src/screens/CartScreen';
 import OrderSuccessScreen from './src/screens/OrderSuccessScreen';
 import RedeemScreen from './src/screens/RedeemRewardsScreen';
+import StoreMapScreen from './src/screens/StoreMapScreen';
+import WelcomeScreen from './src/screens/WelcomeScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -62,11 +64,13 @@ export default function App() {
     <CartProvider>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Welcome" component={WelcomeScreen} />
           <Stack.Screen name="Main" component={HomeTabs} />
           <Stack.Screen name="Details" component={DetailsScreen} />
           <Stack.Screen name="Cart" component={CartScreen} />
           <Stack.Screen name="OrderSuccess" component={OrderSuccessScreen} />
           <Stack.Screen name="Redeem" component={RedeemScreen} />
+          <Stack.Screen name="StoreMap" component={StoreMapScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </CartProvider>

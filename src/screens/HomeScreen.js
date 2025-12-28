@@ -17,12 +17,15 @@ export default function HomeScreen({ navigation }) {
                 <Text className="text-text-main-light dark:text-text-main-dark text-xl font-bold">Quoc Gia Vo</Text>
             </View>
             <View className="flex-row space-x-4">
+                <TouchableOpacity onPress={() => navigation.navigate('StoreMap')}>
+                    <StyledIonicons name="location-outline" size={28} className="text-primary" />
+                </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
                     <StyledIonicons name="cart-outline" size={28} className="text-primary" />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+                {/* <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
                     <StyledIonicons name="person-outline" size={28} className="text-primary" /> 
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </View>
         </View>
     );
